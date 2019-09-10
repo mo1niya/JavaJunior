@@ -36,6 +36,7 @@ public class Task4 {
                 System.out.println("Game over!");
                 break;
             }
+            in.close();
         }
     }
 }
