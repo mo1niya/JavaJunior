@@ -8,5 +8,6 @@ public class Task1 {
         System.out.print("Введите количество литров: ");
         float liters = in.nextFloat();
         System.out.println(liters*43 + " рубрей");
+        in.close();
     }
 }
