@@ -9,5 +9,6 @@ public class Task2 {
         float sum = in.nextFloat();
         float itog = sum/100*13;
         System.out.println(sum-itog + " рубрей");
+        in.close();
     }
 }
