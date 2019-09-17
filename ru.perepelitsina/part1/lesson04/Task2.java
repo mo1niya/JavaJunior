@@ -14,11 +14,11 @@ public class Task2 {
                 System.out.println("Положительное число");
             } else if (num<0){
                 System.out.println("Отрицательное число");
-            } else if (num==0) {
+            } else {
                 System.out.println("Это 0");
             }
 
-            if ((num%2) == 0){
+            if (num%2 == 0){
                 System.out.println("Чётное число");
             } else {
                 System.out.println("Нечётное число");
