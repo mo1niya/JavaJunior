@@ -8,8 +8,8 @@ public class Task1 {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите два числа");
         try {
-            int f = in.nextInt();
-            int s = in.nextInt();
+            float f = in.nextFloat();
+            float s = in.nextFloat();
             if (f>s){
                 System.out.println("Меньшее число - " + s);
             } else if (s>f){
