@@ -16,8 +16,8 @@ public class Task4 {
         int rnd = new Random().nextInt(100);
         System.out.print("Введите число до 100: ");
         int rP = rnd - 0;
+        Scanner in = new Scanner(System.in);
         while (true) {
-            Scanner in = new Scanner(System.in);
             try {
                 int num = in.nextInt();
                 if (rnd == num) {
@@ -36,7 +36,6 @@ public class Task4 {
                 System.out.println("Game over!");
                 break;
             }
-            in.close();
-        }
+        } in.close();
     }
 }
