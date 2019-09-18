@@ -19,7 +19,8 @@ public class Task1 {
             }
         } catch (Exception e){
             System.out.println("Это не число");
+        } finally {
+            in.close();
         }
-        in.close();
     }
 }
