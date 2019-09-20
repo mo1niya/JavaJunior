@@ -15,8 +15,8 @@ public class App {
     public static void main(String[] args) {
         InternalAccount internalAccount = new InternalAccount();
         Drinks[] drinks = Drinks.values();
-        Scanner in= new Scanner(System.in);
         while (true){
+            Scanner in= new Scanner(System.in);
             System.out.println("1 - Посмотреть меню" + "\n" + "2 - Внести денги" + "\n" + "3 - Выбрать напиток");
             int x;
             try {
