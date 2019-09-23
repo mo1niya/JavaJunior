@@ -1,4 +1,4 @@
-package ru.perepelitsina.part1.lesson09.Task3;
+package ru.perepelitsina.part1.lesson09.task3;
 
 public class Student extends Person {
     @Override

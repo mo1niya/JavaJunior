@@ -1,4 +1,4 @@
-package ru.perepelitsina.part1.lesson09.Task3;
+package ru.perepelitsina.part1.lesson09.task3;
 
 //Написать абстрактный класс Человек реализующий
 // интерфейсы «бежать» и «плавать» (в каждом сделать 1-2 метода).
