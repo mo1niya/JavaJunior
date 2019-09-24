@@ -24,4 +24,10 @@ public class Act {
     public void setProducts(String[] products) {
         this.products = products;
     }
+
+    Act(int num, String d, String[] pr){
+        this.number = num;
+        this.data = d;
+        this.products = pr;
+    }
 }

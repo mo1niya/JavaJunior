@@ -6,10 +6,7 @@ package ru.perepelitsina.part1.lesson08.task4;
 // акт (на вход передавать договор, на выходе получаем акт).
 public class Task4 {
     static Act conversion(Contract contract){
-        Act act = new Act();
-        act.setNumber(contract.getNumber());
-        act.setData(contract.getData());
-        act.setProducts(contract.getProducts());
+        Act act = new Act(contract.getNumber(), contract.getData(), contract.getProducts());
         return act;
     }
 }
