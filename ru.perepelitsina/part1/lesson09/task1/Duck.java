@@ -5,7 +5,7 @@ import ru.perepelitsina.part1.lesson09.task2.Run;
 import ru.perepelitsina.part1.lesson09.task2.Swim;
 
 public class Duck extends Animal implements Run, Fly, Swim {
-    String name = "Duck";
+    {this.name = "Duck";}
     @Override
     public String getName() {
         return this.name;
