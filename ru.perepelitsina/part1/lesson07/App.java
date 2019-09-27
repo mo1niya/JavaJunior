@@ -28,7 +28,7 @@ public class App {
             switch (x){
                 case 1: int i = 1;
                     for (Drinks dr: drinks) {
-                        System.out.println(i + " " + dr + " " + Drinks.getPrice(i) + "р.");
+                        System.out.println(i + " " + dr + " " + drinks[i-1].getPrice() + "р.");
                         i++;
                     }
                     break;
@@ -45,13 +45,13 @@ public class App {
                     System.out.println("Введите номер напитка");
                     try {
                         drink = in.nextInt();
-                        if (drink < 1 || drink > 5){
+                        if (drink < 1 || drink > drinks.length){
                             System.out.println("Некорректное значение");
                             continue;
                         } else {
-                            if (Drinks.getPrice(drink) <= internalAccount.getSum()){
+                            if (drinks[drink-1].getPrice() <= internalAccount.getSum()){
                                 System.out.println(drinks[drink-1]);
-                                internalAccount.setSum(-Drinks.getPrice(drink));
+                                internalAccount.setSum(- drinks[drink-1].getPrice());
                                 System.out.println("Баланс: " + internalAccount.getSum());
                             } else {
                                 System.out.println("Недостаточно средств. Пополните счёт.");
@@ -66,6 +66,5 @@ public class App {
                     break;
             }
         }
-
     }
 }
