@@ -34,7 +34,7 @@ public class task1 {
                 switch (count){
                     case 0: String str = scanner.nextLine();
                         if (str.length() == 0) {
-                            str += scanner.nextLine();
+                            str = scanner.nextLine();
                         }
                         System.out.printf("%-20s", str);
                         count++;
