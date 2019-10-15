@@ -1,6 +1,7 @@
 package ru.perepelitsina.part1.lesson16;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 //Домашняя библиотека
@@ -15,11 +16,13 @@ import java.util.Scanner;
 //отсутствие файла на диске - не ошибка, а частный случай пустой библиотеки
 public class Library {
     private static String fileName = "data.bin";
+    private static ArrayList<Book> bookList = readBook();
     public static void main(String[] args) {
         while (true){
             Scanner in = new Scanner(System.in);
             System.out.println("1 Добавить книгу в библиотеку");
             System.out.println("2 Посмотреть список книг");
+            System.out.println("3 Выход");
             int a;
             try{
                  a = in.nextInt();
@@ -31,6 +34,7 @@ public class Library {
                 case 1:
                     try{
                         newBook();
+                        System.out.println("Добавлена новая книга");
                     } catch (Exception e){
                         System.out.println("Некорректное значение");
                         continue;
@@ -38,11 +42,14 @@ public class Library {
                     break;
                 case 2:
                     if (new File(fileName).exists()) {
-                        readBook();
+                        for (Book b: bookList){
+                            System.out.println(b);
+                        }
                     } else {
                         System.out.println("Библиотека пуста");
                     }
                     break;
+                case 3: System.exit(0);
             }
         }
     }
@@ -56,19 +63,27 @@ public class Library {
         String genre = in.nextLine();
         System.out.println("Год издания: ");
         int date = in.nextInt();
-        Book book = new Book(name, author, date, genre);
-        try (ObjectOutputStream oos = createStream(new File(fileName))) {
-            oos.writeObject(book);
-        } catch (IOException e) {
-            e.printStackTrace();
+        for (Book bk: bookList){
+            if (bk.getName().equals(name) && bk.getAuthor().equals(author) && bk.getGenre().equals(genre) && bk.getDate() == date){
+                System.out.println("Такая книга уже существует");
+            } else {
+                Book book = new Book(name, author, date, genre);
+                try (ObjectOutputStream oos = createStream(new File(fileName))) {
+                    oos.writeObject(book);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                bookList.add(book);
+            }
         }
     }
-    private static void readBook(){
+    private static ArrayList<Book> readBook(){
+        ArrayList<Book> books = new ArrayList<>();
         try (FileInputStream fis = new FileInputStream(fileName);
              ObjectInputStream ois = new ObjectInputStream(fis)){
             try {
                 while (true){
-                    System.out.println(ois.readObject());
+                    books.add((Book) ois.readObject());
                 }
             } catch (EOFException e){
             }
@@ -77,6 +92,7 @@ public class Library {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return books;
     }
     /**
      * Вспомогательный метод для создания потока
