@@ -46,7 +46,7 @@ public class task1 {
                         break;
                     case 2:
                         quantity = scanner.nextFloat();
-                        System.out.printf("%-10.3f", quantity);
+                        System.out.printf("x %-10.3f =", quantity);
                         cost = price * quantity;
                         sum += cost;
                         price = 0;
