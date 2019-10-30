@@ -21,7 +21,7 @@ public class Task1 {
             System.out.println(s);
         }
     }
-    static public Set<String> removeEvenLength(Set<String> set){
+    private static Set<String> removeEvenLength(Set<String> set){
         Set<String> tmp = new HashSet<>();
         for (String str: set){
             if (str.length()%2 == 0){
