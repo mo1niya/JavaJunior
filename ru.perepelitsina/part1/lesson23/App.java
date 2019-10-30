@@ -1,7 +1,5 @@
 package ru.perepelitsina.part1.lesson23;
 
-import java.util.List;
-
 public class App {
     public static void main(String[] args) {
         BasketClass basketClass = new BasketClass();

@@ -9,7 +9,6 @@ public class BasketClass implements Basket {
     @Override
     public void addProduct(String product, int quantity) {
         if (productList.contains(product)){
-            int qi = productList.indexOf(product);
             updateProductQuantity(product, quantity);
         } else {
             productList.add(product);
