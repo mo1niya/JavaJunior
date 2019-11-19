@@ -1,7 +1,6 @@
 package ru.perepelitsina.part1.lesson25;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 //public boolean isUnique(Map<String, String> map);
 //Написать метод, который возвращает true, если в мапе нет двух и более одинаковых value, и false в противном случае.
@@ -28,16 +27,11 @@ public class Task1 {
         System.out.println(isUnique(map3));
     }
     private static boolean isUnique(Map<String, String> map){
-        boolean tmp = true;
-        String val = "";
-        for (Map.Entry<String, String> entry: map.entrySet()){
-            String entryVal = entry.getValue();
-            if (val == entryVal){
-                return false;
-            } else {
-                val = entryVal;
-            }
+        TreeSet<String> set = new TreeSet<>(map.values());
+        if (set.size() == map.size() || map.size() == 0){
+            return true;
+        } else {
+            return false;
         }
-        return tmp;
     }
 }
