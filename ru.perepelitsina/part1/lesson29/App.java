@@ -28,28 +28,24 @@ public class App {
 
     public static void removeTheDuplicates(Map<String, Person> map){
         Map<String, Person> copyMap = new HashMap<>(map);
-        Person personTemp = null;
         Person personValue;
+        String key;
         for (Map.Entry<String, Person> entry: copyMap.entrySet()){
+            key = entry.getKey();
             personValue = entry.getValue();
-            if (personValue.equals(personTemp)){
-                removeItemFromMapByValue(map, personValue);
-            } else {
-                personTemp = personValue;
-            }
+            removeItemFromMapByValue(map, personValue);
+            map.put(key, personValue);
         }
     }
-    public static void removeItemFromMapByValue(Map<String, Person> map, Person value) {
+    public static void removeItemFromMapByValue(Map<String, Person> map, Person value)
+    {
         Map<String, Person> copy = new HashMap<>(map);
-        String keyMap = "";
-        for (Map.Entry<String, Person> pair: copy.entrySet()) {
-            if (pair.getValue().equals(value)) {
-                keyMap = pair.getKey();
-            }
+        for (Map.Entry<String, Person> pair: copy.entrySet())
+        {
+            if (pair.getValue().equals(value))
+                map.remove(pair.getKey());
         }
-        map.remove(keyMap);
     }
-
     public static void printMap(Map<String, Person> map){
         for (Map.Entry<String, Person> entry: map.entrySet()){
             System.out.println(entry.getKey() + " - " + entry.getValue().toString());
