@@ -17,20 +17,28 @@ public class Task1 {
         char[] chars = str.toCharArray();
         char temp;
         int x = chars.length-1;
+        String newStr = "";
         for (int i = 0; i <= x/2; i++){
             temp = chars[i];
             chars[i] = chars[x-i];
             chars[x-i] = temp;
         }
         for (char c: chars){
-            System.out.print(c);
+            newStr = newStr + c;
         }
-        System.out.println();
+        if (newStr.equalsIgnoreCase(str)){
+            System.out.println(true);
+        } else {
+            System.out.println(false);
+        }
     }
     private static void revers(String str){
         System.out.print("Используя стандартные функции строки ");
         StringBuffer buffer = new StringBuffer(str);
-        buffer.reverse();
-        System.out.println(buffer);
+        if (buffer.toString().equalsIgnoreCase(str)){
+            System.out.println(true);
+        } else {
+            System.out.println(false);
+        }
     }
 }
